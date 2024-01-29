@@ -11,7 +11,10 @@ func main() {
 	args := os.Args
 	if len(args) > 1 {
 		log.Printf("Hello %v!!", args[1])
-		exec.Command("echo", fmt.Sprintf("outname=%v", args[1])).Run()
+		err := exec.Command("echo", fmt.Sprintf("outname=%v", args[1])).Run()
+		if err != nil {
+			log.Fatal(err)
+		}
 		// os.Setenv("GITHUB_OUTPUT", fmt.Sprintf("\noutname=%v", args[1]))
 		return
 	}
