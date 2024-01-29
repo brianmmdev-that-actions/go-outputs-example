@@ -1,0 +1,21 @@
+name: 'THAT Public Action'
+description: 'Not THIS one...'
+
+branding:
+  icon: activity
+  color: blue
+
+inputs:
+  name:
+    description: 'Who are we saying hello to?'
+    required: true
+
+outputs:
+  outname:
+    description: 'Who are we saying hello to?'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.name }}
